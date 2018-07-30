@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Math;
 
 namespace Exercises_2
 {
     class Program
     {
+        static int rad;
         static void Main(string[] args)
         {
             string menu;
@@ -25,16 +25,16 @@ namespace Exercises_2
                 switch (menu)
                 {
                     case "a":
-                        Math.GetCircleValues();
+                        rad = Calculations.GetCircleValues();
                         break;
                     case "b":
-                        Math.CalcCircleArea();
+                        Calculations.CalcCircleArea(rad);
                         break;
                     case "c":
-                        Math.GetSquareValues();
+                        Calculations.GetSquareValues();
                         break;
                     case "d":
-                        Math.CalcSquareArea();
+                        Calculations.CalcSquareArea();
                         break;
                     case "e":
                         break;
@@ -47,7 +47,7 @@ namespace Exercises_2
         }
     }
 
-    class Math
+    class Calculations
     {
         public static int GetCircleValues()
         {
@@ -55,23 +55,26 @@ namespace Exercises_2
             return int.Parse(Console.ReadLine());
         }
 
-        public static void CalcCircleArea(int rad)
+        public static double CalcCircleArea(int rad)
         {
-            return Math.Pow(3.14 * rad, 2.0);
+            return Math.Pow(3.14 * rad, 2);
         }
 
-        public static int GetSquareValues(int w, int h)
+        public static Array[] GetSquareValues()
         {
             Console.WriteLine("Enter the squares width:");
-            w = int.Parse(Console.ReadLine());
+            int w = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter the squares height:");
-            h = int.Parse(Console.ReadLine());
-            return w;
+            int h = int.Parse(Console.ReadLine());
+            int[] square = new int[2];
+            square[0] = w;
+            square[1] = h;
+            return square[];
         }
 
-        public static void CalcSquareArea()
+        public static int CalcSquareArea(int w, int h)
         {
-
+            return w * h;
         }
     }
 }
