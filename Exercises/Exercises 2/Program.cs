@@ -8,7 +8,8 @@ namespace Exercises_2
 {
     class Program
     {
-        static int rad;
+        static float rad;
+        static float sArea;
         static void Main(string[] args)
         {
             string menu;
@@ -22,24 +23,32 @@ namespace Exercises_2
                 Console.WriteLine("'e' Exits the program");
 
                 menu = Console.ReadLine();
+                Console.WriteLine();
                 switch (menu)
                 {
                     case "a":
                         rad = Calculations.GetCircleValues();
+                        Console.WriteLine();
                         break;
                     case "b":
-                        Calculations.CalcCircleArea(rad);
+                        Console.WriteLine(Calculations.CalcCircleArea(rad));
+                        Console.WriteLine("Press 'Enter' to continue");
+                        Console.ReadLine();
                         break;
                     case "c":
-                        Calculations.GetSquareValues();
+                        sArea = Calculations.GetSquareValues();
+                        Console.WriteLine();
                         break;
                     case "d":
-                        Calculations.CalcSquareArea();
+                        Console.WriteLine(Calculations.CalcSquareArea(sArea));
+                        Console.WriteLine("Press 'Enter' to continue");
+                        Console.ReadLine();
                         break;
                     case "e":
                         break;
                     default:
                         Console.WriteLine("Error. Not an option!");
+                        Console.WriteLine();
                         break;
 
                 }
@@ -55,26 +64,25 @@ namespace Exercises_2
             return int.Parse(Console.ReadLine());
         }
 
-        public static double CalcCircleArea(int rad)
+        public static string CalcCircleArea(float rad)
         {
-            return Math.Pow(3.14 * rad, 2);
+            double cArea =  Math.Pow(3.14 * rad, 2);
+            return $"The area of a cirle with {rad} radius is {Math.Round(cArea, 2)}";
         }
 
-        public static Array[] GetSquareValues()
+        public static float GetSquareValues()
         {
             Console.WriteLine("Enter the squares width:");
-            int w = int.Parse(Console.ReadLine());
+            float w = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter the squares height:");
-            int h = int.Parse(Console.ReadLine());
-            int[] square = new int[2];
-            square[0] = w;
-            square[1] = h;
-            return square[];
+            float h = int.Parse(Console.ReadLine());
+            float sArea = w * h;
+            return sArea;
         }
 
-        public static int CalcSquareArea(int w, int h)
+        public static string CalcSquareArea(float sArea)
         {
-            return w * h;
+            return $"The area of this square is {Math.Round(sArea, 2)}";
         }
     }
 }
